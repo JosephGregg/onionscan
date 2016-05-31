@@ -12,7 +12,7 @@ type FTPProtocolScanner struct {
 
 func (sps *FTPProtocolScanner) ScanProtocol(hiddenService string, onionscanConfig *config.OnionscanConfig, report *report.OnionScanReport) {
 	// FTP
-	log.Printf("Checking %s FTP(22)\n", hiddenService)
+	log.Printf("Checking %s FTP(21)\n", hiddenService)
 	_, err := socks.DialSocksProxy(socks.SOCKS5, onionscanConfig.TorProxyAddress)("", hiddenService+":21")
 	if err != nil {
 		log.Printf("Failed to connect to service on port 21\n")
